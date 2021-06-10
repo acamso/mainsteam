@@ -20,14 +20,16 @@ app = Flask(__name__)
 
 
 @app.route("/")
-def home() -> str:
+def static_route() -> str:
     """Returns static HTML."""
     return "<div>Welcome</div>"
 
+
 @app.route("/<name>")
-def hello(name) -> str:
+def dynamic_route(name) -> str:
     """Returns escaped dynamic HTML.
 
-    Dynamic HTML needs to be escaped to prevent injections.
+    This is an example of a dynamic route with a variable. The output is dynamic, so it needs to be
+    escaped to prevent injections.
     """
     return f"<div>Welcome, {escape(name)}</div>"
