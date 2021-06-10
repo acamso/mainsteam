@@ -29,7 +29,7 @@ def static_route() -> str:
 def dynamic_route(name) -> str:
     """Returns escaped dynamic HTML.
 
-    This is an example of a dynamic route with a variable. The output is dynamic, so it needs to be
-    escaped to prevent injections.
+    This is an example of a dynamic route with a variable. Dynamic output needs to be escaped to prevent
+    injections.
     """
     return f"<div>Welcome, {escape(name)}</div>"
