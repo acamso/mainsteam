@@ -27,9 +27,18 @@ def static_route() -> str:
 
 @app.route("/<name>")
 def dynamic_route(name) -> str:
-    """Returns escaped dynamic HTML.
+    """Returns escaped dynamic HTML with provided name.
 
     This is an example of a dynamic route with a variable. Dynamic output needs to be escaped to prevent
     injections.
     """
     return f"<div>Welcome, {escape(name)}</div>"
+
+@app.route("/id/<int:_id>")
+def dynamic_route_w_type(_id) -> str:
+    """Returns dynamic HTML with provided ID.
+
+    This is an example of a dynamic route with a strict-type variable. 
+    """
+    assert isinstance(_id, int)
+    return f"<div>The ID is {_id}</div>"
