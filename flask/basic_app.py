@@ -44,3 +44,13 @@ def dynamic_route_w_type(_id: int) -> str:
     """
     assert isinstance(_id, int)
     return f"<div>The ID is {_id}</div>"
+
+
+@app.route("/dir/")
+def static_dir_route() -> str:
+    """Returns plain text.
+
+    This is an example of a static route with a trailing slash. The same path without a trailing slash
+    redirects to this endpoint. Accessing a non-existing trailing slash endpoint results in a 404 page.
+    """
+    return "This is an endpoint with a trailing slash."
