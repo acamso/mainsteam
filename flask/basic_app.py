@@ -26,7 +26,7 @@ def static_route() -> str:
 
 
 @app.route("/<name>")
-def dynamic_route(name) -> str:
+def dynamic_route(name: str) -> str:
     """Returns escaped dynamic HTML with provided name.
 
     This is an example of a dynamic route with a variable. Dynamic output needs to be escaped to prevent
@@ -36,7 +36,7 @@ def dynamic_route(name) -> str:
 
 
 @app.route("/id/<int:_id>")
-def dynamic_route_w_type(_id) -> str:
+def dynamic_route_w_type(_id: int) -> str:
     """Returns dynamic HTML with provided ID.
 
     This is an example of a dynamic route with a strict-type variable. Possible types are string, int,
