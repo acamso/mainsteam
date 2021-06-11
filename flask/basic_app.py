@@ -34,11 +34,13 @@ def dynamic_route(name) -> str:
     """
     return f"<div>Welcome, {escape(name)}</div>"
 
+
 @app.route("/id/<int:_id>")
 def dynamic_route_w_type(_id) -> str:
     """Returns dynamic HTML with provided ID.
 
-    This is an example of a dynamic route with a strict-type variable. 
+    This is an example of a dynamic route with a strict-type variable. Possible types are string, int,
+    float, path, uuid. Incorrect type results in a 404 page.
     """
     assert isinstance(_id, int)
     return f"<div>The ID is {_id}</div>"
