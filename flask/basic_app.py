@@ -67,7 +67,7 @@ def url(name: str) -> str:
 @app.route("/abs_url/<name>")
 def abs_url(name: str) -> str:
     """Returns this dynamic absolute URL in plain text."""
-    return url_for("url", name=name, _external=True)
+    return url_for("abs_url", name=name, _external=True)
 
 
 @app.route("/opt_id/<int:_id>")
