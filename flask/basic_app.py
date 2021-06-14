@@ -16,13 +16,13 @@ from typing import Optional
 
 from markupsafe import escape
 
-from flask import Flask, url_for
+from flask import Flask, request, url_for
 
 app = Flask(__name__)
 
 
 @app.route("/")
-def static() -> str:
+def _static() -> str:
     """Returns static HTML."""
     return "<div>Welcome</div>"
 
