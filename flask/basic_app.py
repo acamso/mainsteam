@@ -12,6 +12,8 @@ $ export FLASK_APP=basic_app
 $ flask run
 """
 
+from typing import Optional
+
 from markupsafe import escape
 
 from flask import Flask, url_for
@@ -66,3 +68,17 @@ def url(name: str) -> str:
 def abs_url(name: str) -> str:
     """Returns this dynamic absolute URL in plain text."""
     return url_for("url", name=name, _external=True)
+
+
+@app.route("/opt_id/<int:_id>")
+@app.route("/opt_id/<int:_id>/<user>")
+def opt_param(_id: int, user: Optional[str] = None) -> str:
+    """Returns dynamic HTML with provided ID and the username if provided.
+
+    This is an example of a dynamic route with an optional parameter.
+    """
+    res = f"<div>The ID is {_id}"
+    if user:
+        res += f" and the username is {user}"
+    res += "</div>"
+    return res
