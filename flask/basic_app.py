@@ -60,3 +60,9 @@ def static_dir_route() -> str:
 def url(name: str) -> str:
     """Returns this dynamic relative URL in plain text."""
     return url_for("url", name=name)
+
+
+@app.route("/abs_url/<name>")
+def abs_url(name: str) -> str:
+    """Returns this dynamic absolute URL in plain text."""
+    return url_for("url", name=name, _external=True)
