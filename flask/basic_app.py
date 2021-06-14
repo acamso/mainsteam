@@ -14,7 +14,7 @@ $ flask run
 
 from markupsafe import escape
 
-from flask import Flask
+from flask import Flask, url_for
 
 app = Flask(__name__)
 
@@ -54,3 +54,9 @@ def static_dir_route() -> str:
     redirects to this endpoint. Accessing a non-existing trailing slash endpoint results in a 404 page.
     """
     return "This is an endpoint with a trailing slash."
+
+
+@app.route("/url/<name>")
+def url(name: str) -> str:
+    """Returns this dynamic relative URL in plain text."""
+    return url_for("url", name=name)
