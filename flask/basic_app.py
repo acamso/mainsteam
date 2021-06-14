@@ -67,6 +67,7 @@ def url(name: str) -> str:
 @app.route("/abs_url/<name>")
 def abs_url(name: str) -> str:
     """Returns this dynamic absolute URL in plain text."""
+    # https://stackoverflow.com/questions/12162634/where-do-i-define-the-domain-to-be-used-by-url-for-in-flask
     return url_for("abs_url", name=name, _external=True)
 
 
@@ -77,6 +78,7 @@ def opt_param(_id: int, user: Optional[str] = None) -> str:
 
     This is an example of a dynamic route with an optional parameter.
     """
+    # https://stackoverflow.com/questions/14032066/can-flask-have-optional-url-parameters
     res = f"<div>The ID is {_id}"
     if user:
         res += f" and the username is {user}"
