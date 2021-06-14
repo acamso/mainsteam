@@ -84,3 +84,13 @@ def opt_param(_id: int, user: Optional[str] = None) -> str:
         res += f" and the username is {user}"
     res += "</div>"
     return res
+
+
+@app.route("/method", methods=["GET", "POST", "PUT", "PATCH", "DELETE"])
+def method() -> str:
+    """Returns plain text with used method.
+
+    This is an example of a POST endpoint. Flask supports the following methods: GET, POST, PUT, PATCH,
+    DELETE, HEAD, OPTIONS. The default method is GET. HEAD and OPTIONS are automatically implemented.
+    """
+    return f"This is the {request.method} method."
